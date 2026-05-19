@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+.kt-logs/
+*.cap
+*.pcap
+*.pcapng
+*.hccapx
+*.hc22000
+capture*
+hs*
+pmkid*
+wl.txt
