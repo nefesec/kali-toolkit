@@ -1,21 +1,34 @@
 # Kali Toolkit
 
-**Outil all-in-one CLI pour pentest** — réunit 42 actions et 6 guides méthodologiques
-dans une interface menu unique pour Kali Linux.
+**Outil all-in-one CLI pour pentest pédagogique** — 42 actions + 7 guides
+sous une interface menu unique. Chaque attaque a une **fiche détaillée**
+accessible via `?N` dans le menu (description, prérequis, sortie, tips, limites).
 
-> Projet pédagogique. Usage uniquement sur des cibles **dont tu as l'autorisation explicite**.
+> Usage uniquement sur des cibles **dont tu as l'autorisation explicite**.
+
+## Statut honnête des attaques (face aux équipements modernes)
+
+Chaque item du menu affiche un tag :
+
+- `[ OK   ]` — fonctionne globalement
+- `[ CFG  ]` — dépend de la config cible
+- `[ VIEUX]` — souvent obsolète sur firmware/OS récent
+- `[ TOOL ]` — outil utilitaire (pas une attaque)
+
+Voir `guides/07-limites-equipements-modernes.md` pour le détail par scénario
+(Bbox Next Gen, WPA3, EDR Windows, WAF, etc.).
 
 ## Catégories
 
-| Module          | Outils inclus                                                                                  |
-|-----------------|------------------------------------------------------------------------------------------------|
-| Reconnaissance  | nmap (4 modes), whois, dnsrecon, theHarvester, whatweb                                          |
-| WiFi (12)       | airmon/airodump/aireplay, reaver, bully, hcxdumptool, aircrack, hashcat (mode 22000)            |
-| Réseau LAN (8)  | arp-scan, arpspoof, dnsspoof, ettercap, sslstrip, tcpdump, nbtscan, port-knock                  |
-| Web (6)         | dirb, gobuster, nikto, sqlmap, wpscan, xsstrike                                                 |
-| Exploitation (4)| searchsploit, msfconsole, hydra (SSH + FTP)                                                     |
-| Crack & Hash (4)| hashcat, john, crunch, hash-identifier                                                          |
-| Guides          | méthodologie, recon, WiFi (bases + spécifique Bbox), web, reporting                             |
+| Module          | Outils                                                                                |
+|-----------------|----------------------------------------------------------------------------------------|
+| Reconnaissance  | nmap (4 modes), whois, dnsrecon, theHarvester, whatweb                                 |
+| WiFi (12)       | airmon/airodump/aireplay, reaver, bully, hcxdumptool, aircrack, hashcat               |
+| Réseau LAN (8)  | arp-scan, arpspoof, dnsspoof, ettercap, sslstrip, tcpdump, nbtscan, port-knock         |
+| Web (6)         | dirb, gobuster, nikto, sqlmap, wpscan, xsstrike                                        |
+| Exploitation (4)| searchsploit, msfconsole, hydra (SSH + FTP)                                            |
+| Crack & Hash (4)| hashcat, john, crunch, hash-identifier                                                 |
+| Guides          | méthodo · recon · WiFi (bases + Bbox) · web · reporting · **limites équipements**     |
 
 ## Installation
 
@@ -32,6 +45,15 @@ chmod +x install.sh
 sudo python3 kt.py
 ```
 
+## Utilisation du menu
+
+```
+1, 2, 3 ...    → lance l'attaque
+?N             → affiche fiche détaillée de l'attaque N
+0              → retour menu précédent
+Ctrl-C         → interrompt l'attaque en cours, retour menu
+```
+
 ## Logs
 
 Tous les outputs sont sauvegardés dans `~/.kt-logs/` avec timestamp, prêts pour le rapport.
@@ -40,31 +62,45 @@ Tous les outputs sont sauvegardés dans `~/.kt-logs/` avec timestamp, prêts pou
 
 ```
 kali-toolkit/
-├── kt.py                # entrée principale (menu)
+├── kt.py                # entrée principale
 ├── core/
-│   ├── ui.py            # couleurs, menus
+│   ├── ui.py            # menu + info ?N + tags statut
 │   └── runner.py        # wrapper subprocess + logs
 ├── modules/
-│   ├── recon.py         # 8 outils
-│   ├── wifi.py          # 12 outils
-│   ├── network.py       # 8 outils
-│   ├── web.py           # 6 outils
-│   ├── exploit.py       # 4 outils
-│   ├── crack.py         # 4 outils
-│   └── guides.py        # rendu markdown
-├── guides/              # méthodologie + cheat sheets
+│   ├── recon.py         # 8 + fiches info
+│   ├── wifi.py          # 12 + fiches info
+│   ├── network.py       # 8 + fiches info
+│   ├── web.py           # 6 + fiches info
+│   ├── exploit.py       # 4 + fiches info
+│   ├── crack.py         # 4 + fiches info
+│   └── guides.py        # rendu markdown des guides
+├── guides/              # 7 cheat sheets
 └── install.sh
 ```
 
+## Limites connues (à dire au prof avant qu'il pose la question)
+
+Ce toolkit reste un wrapper pédagogique. **Ce qu'il ne fait PAS** :
+
+- Pas d'évasion EDR moderne (Defender ATP, CrowdStrike, SentinelOne)
+- Pas de bypass WAF avancé (Cloudflare, Akamai, Imperva sortent les tools de la boîte)
+- Pas de cracking WPA3 (SAE protège contre le PMKID/handshake)
+- Pas de social engineering (phishing kits, evil twin avec portail captif sont à part)
+- Pas de C2 (Cobalt Strike, Sliver, Mythic = environnement op pro)
+- Pas de Bluetooth / SDR / hardware hacking
+
+Pour ces sujets : monter des labs dédiés ou suivre des certifs (OSCP, PNPT, CRTP).
+
 ## Conformité légale
 
-L'utilisation de ces outils contre un système sans autorisation **écrite** du propriétaire
-constitue une intrusion (Art. 323-1 du Code pénal en France). Ce projet est destiné à :
+L'utilisation contre un système sans autorisation **écrite** du propriétaire
+constitue une intrusion (Art. 323-1 du Code pénal français, équivalents UE/US).
 
-- Tests sur ton propre matériel
-- Cyber-ranges (HackTheBox, TryHackMe, OffSec labs)
-- Missions de pentest sous contrat
-- Apprentissage en environnement isolé (VM)
+Usage légitime :
+- Ton propre matériel
+- Cyber-ranges (HackTheBox, TryHackMe, OffSec labs, PortSwigger Web Academy)
+- Missions pentest sous contrat
+- Examen scolaire en environnement contrôlé
 
 ## Licence
 
