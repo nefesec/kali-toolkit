@@ -13,6 +13,8 @@ PKGS=(
   nmap whois dnsrecon theharvester whatweb
   # wifi
   aircrack-ng reaver bully hcxdumptool hcxtools
+  # wifi avancé (anti-PMF / WPA3)
+  mdk4 python3-scapy tshark
   # network
   arp-scan dsniff ettercap-text-only sslstrip tcpdump nbtscan
   # web

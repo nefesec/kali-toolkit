@@ -1,8 +1,11 @@
 # Kali Toolkit
 
-**Outil all-in-one CLI pour pentest pédagogique** — 42 actions + 7 guides
+**Outil all-in-one CLI pour pentest pédagogique** — 50 actions + 8 guides
 sous une interface menu unique. Chaque attaque a une **fiche détaillée**
 accessible via `?N` dans le menu (description, prérequis, sortie, tips, limites).
+
+Inclut un module **WiFi avancé anti-PMF / WPA3** (CSA injection, EAPOL flood,
+CTS-to-self DoS) pour contourner les protections des box modernes type Bbox Next Gen.
 
 > Usage uniquement sur des cibles **dont tu as l'autorisation explicite**.
 
@@ -24,6 +27,7 @@ Voir `guides/07-limites-equipements-modernes.md` pour le détail par scénario
 |-----------------|----------------------------------------------------------------------------------------|
 | Reconnaissance  | nmap (4 modes), whois, dnsrecon, theHarvester, whatweb                                 |
 | WiFi (12)       | airmon/airodump/aireplay, reaver, bully, hcxdumptool, aircrack, hashcat               |
+| **WiFi avancé (8)** | **CSA injection, CTS-to-self DoS, EAPOL flood, MDK4 (5 modes), détecteur PMF** |
 | Réseau LAN (8)  | arp-scan, arpspoof, dnsspoof, ettercap, sslstrip, tcpdump, nbtscan, port-knock         |
 | Web (6)         | dirb, gobuster, nikto, sqlmap, wpscan, xsstrike                                        |
 | Exploitation (4)| searchsploit, msfconsole, hydra (SSH + FTP)                                            |
