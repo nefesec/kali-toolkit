@@ -131,3 +131,13 @@ def pause():
         input(f"\n{D}[entrée pour continuer]{RESET}")
     except (KeyboardInterrupt, EOFError):
         print()
+
+
+def pause_with_analysis():
+    """Comme pause() mais propose d'analyser le dernier log (loot extraction)."""
+    print()
+    if confirm("Analyser automatiquement ce qui a été capturé ?"):
+        from modules.analyzer import analyze_latest
+        analyze_latest()
+    else:
+        pause()

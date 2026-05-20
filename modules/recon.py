@@ -17,7 +17,7 @@ def nmap_full():
     target = ui.ask("cible")
     if not target: return
     runner.run(["nmap", "-sS", "-sV", "-O", "-p-", "-T4", target], tag="nmap-full", root=True)
-    ui.pause()
+    ui.pause_with_analysis()
 
 
 def nmap_vuln():
@@ -25,7 +25,7 @@ def nmap_vuln():
     target = ui.ask("cible")
     if not target: return
     runner.run(["nmap", "--script", "vuln", "-sV", target], tag="nmap-vuln")
-    ui.pause()
+    ui.pause_with_analysis()
 
 
 def nmap_stealth():

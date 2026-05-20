@@ -8,7 +8,7 @@ def dirb_scan():
     if not runner.check_tools(["dirb"]): ui.pause(); return
     url = ui.ask("URL"); wl = ui.ask("wordlist", default="/usr/share/wordlists/dirb/common.txt")
     if not url: ui.pause(); return
-    runner.run(["dirb", url, wl], tag="dirb"); ui.pause()
+    runner.run(["dirb", url, wl], tag="dirb"); ui.pause_with_analysis()
 
 
 def gobuster_scan():
@@ -16,7 +16,7 @@ def gobuster_scan():
     if not runner.check_tools(["gobuster"]): ui.pause(); return
     url = ui.ask("URL"); wl = ui.ask("wordlist", default="/usr/share/wordlists/dirb/common.txt")
     if not url: ui.pause(); return
-    runner.run(["gobuster", "dir", "-u", url, "-w", wl, "-t", "50"], tag="gobuster"); ui.pause()
+    runner.run(["gobuster", "dir", "-u", url, "-w", wl, "-t", "50"], tag="gobuster"); ui.pause_with_analysis()
 
 
 def nikto_scan():
@@ -24,7 +24,7 @@ def nikto_scan():
     if not runner.check_tools(["nikto"]): ui.pause(); return
     url = ui.ask("URL")
     if not url: ui.pause(); return
-    runner.run(["nikto", "-h", url], tag="nikto"); ui.pause()
+    runner.run(["nikto", "-h", url], tag="nikto"); ui.pause_with_analysis()
 
 
 def sqlmap_scan():
@@ -32,7 +32,7 @@ def sqlmap_scan():
     if not runner.check_tools(["sqlmap"]): ui.pause(); return
     url = ui.ask("URL avec paramètre (ex: http://x/p?id=1)")
     if not url: ui.pause(); return
-    runner.run(["sqlmap", "-u", url, "--batch", "--level=2"], tag="sqlmap"); ui.pause()
+    runner.run(["sqlmap", "-u", url, "--batch", "--level=2"], tag="sqlmap"); ui.pause_with_analysis()
 
 
 def wpscan_scan():
@@ -41,7 +41,7 @@ def wpscan_scan():
     url = ui.ask("URL WordPress")
     if not url: ui.pause(); return
     runner.run(["wpscan", "--url", url, "--enumerate", "vp,vt,u", "--random-user-agent"],
-               tag="wpscan"); ui.pause()
+               tag="wpscan"); ui.pause_with_analysis()
 
 
 def xss_test():

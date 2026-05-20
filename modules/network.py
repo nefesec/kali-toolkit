@@ -19,7 +19,7 @@ def arp_spoof():
     if not (victim and gw): ui.pause(); return
     ui.warn("Active forwarding : sudo sysctl -w net.ipv4.ip_forward=1\n")
     runner.run(["arpspoof", "-i", iface, "-t", victim, "-r", gw], tag="arpspoof", root=True)
-    ui.pause()
+    ui.pause_with_analysis()
 
 
 def dns_spoof():
@@ -40,7 +40,7 @@ def mitm_ettercap():
     args = ["ettercap", "-T", "-q", "-i", iface, "-M", "arp:remote"]
     if target: args += [f"/{target}//", "//"]
     runner.run(args, tag="ettercap", root=True)
-    ui.pause()
+    ui.pause_with_analysis()
 
 
 def sslstrip():
@@ -59,7 +59,7 @@ def packet_capture():
     args = ["tcpdump", "-i", iface, "-w", out]
     if filt: args += filt.split()
     runner.run(args, tag="tcpdump", root=True)
-    ui.pause()
+    ui.pause_with_analysis()
 
 
 def netbios_scan():
