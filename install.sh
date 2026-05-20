@@ -15,6 +15,8 @@ PKGS=(
   aircrack-ng reaver bully hcxdumptool hcxtools
   # wifi avancé (anti-PMF / WPA3)
   mdk4 python3-scapy tshark
+  # evil twin / fake AP
+  hostapd dnsmasq
   # network
   arp-scan dsniff ettercap-text-only sslstrip tcpdump nbtscan
   # web

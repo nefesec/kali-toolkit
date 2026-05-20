@@ -11,20 +11,23 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from core import ui
-from modules import recon, wifi, wifi_adv, network, web, exploit, crack, analyzer, beginner, guides
+from modules import (recon, wifi, wifi_wizard, wifi_adv, evil_twin, network,
+                     web, exploit, crack, analyzer, beginner, guides)
 
 
 MAIN = [
-    ("MODE DÉBUTANT      (scénarios auto)", beginner.menu),
-    ("Reconnaissance     (8 outils)",       recon.menu),
-    ("WiFi              (12 outils)",       wifi.menu),
-    ("WiFi avancé        (8 anti-PMF)",     wifi_adv.menu),
-    ("Réseau LAN         (8 outils)",       network.menu),
-    ("Web                (6 outils)",       web.menu),
-    ("Exploitation       (4 outils)",       exploit.menu),
-    ("Crack & Hash       (4 outils)",       crack.menu),
-    ("Analyse post-attaque",                analyzer.menu),
-    ("Guides & méthodo",                    guides.menu),
+    ("MODE DÉBUTANT      (scénarios auto)",  beginner.menu),
+    ("WiFi WIZARD        (airgeddon-style)", wifi_wizard.menu),
+    ("Evil Twin / Fake AP (portail captif)", lambda: evil_twin.standalone()),
+    ("Reconnaissance     (8 outils)",        recon.menu),
+    ("WiFi              (12 outils)",        wifi.menu),
+    ("WiFi avancé        (8 anti-PMF)",      wifi_adv.menu),
+    ("Réseau LAN         (8 outils)",        network.menu),
+    ("Web                (6 outils)",        web.menu),
+    ("Exploitation       (4 outils)",        exploit.menu),
+    ("Crack & Hash       (4 outils)",        crack.menu),
+    ("Analyse post-attaque",                 analyzer.menu),
+    ("Guides & méthodo",                     guides.menu),
 ]
 
 
